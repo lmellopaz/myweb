@@ -18,11 +18,11 @@
  *  10. intro
  *  11. about
  *  12. resume
- *  13. portfolio
+ *  13. compañeros
  *  14. call-to-action section
  *  15. services
  *  16. stats
- *  17. contact
+ *  17. opinions and contact
  *  18. footer
  *
  * =================================================================== 
@@ -370,7 +370,6 @@ ul,
 ol,
 dl,
 form,
-.fluid-video-wrapper,
 .ss-custom-select {
 	margin-bottom: 3rem;
 }
@@ -753,41 +752,6 @@ button::-moz-focus-inner, input::-moz-focus-inner {
  */
 
 /**
- * alert box - (_alert-box.scss)
- * -------------------------------------------------------------------
- */
-.alert-box {
-	padding: 2.1rem 4rem 2.1rem 3rem;
-	position: relative;
-	margin-bottom: 3rem;
-	border-radius: 3px;
-	font-family: "poppins-regular", sans-serif;
-	font-size: 1.5rem;
-}
-.alert-box .close {
-	position: absolute;
-	right: 1.8rem;
-	top: 1.8rem;
-	cursor: pointer;
-}
-.ss-error {
-	background-color: #ffd1d2;
-	color: #e65153;
-}
-.ss-success {
-	background-color: #c8e675;
-	color: #758c36;
-}
-.ss-info {
-	background-color: #d7ecfb;
-	color: #4a95cc;
-}
-.ss-notice {
-	background-color: #fff099;
-	color: #bba31b;
-}
-
-/**
  * additional typo styles - (_additional-typo.scss)
  * -------------------------------------------------------------------
  */
@@ -1011,6 +975,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 .skill-bars li .percent90  { width: 90%; }
 .skill-bars li .percent95  { width: 95%; }
 .skill-bars li .percent100 { width: 100%; }
+.skill-bars li .percent200 { width: 200%; }
 
 
 /** 
@@ -1120,7 +1085,7 @@ header .logo a {
 	width: 92px;
 	height: 15px;
 	background: url("../images/logo.png") no-repeat center;
-	background-size: 92px 15px;
+	background-size: 102px 25px;
 }
 
 /**
@@ -1506,6 +1471,8 @@ header .logo a {
 .intro-info img {
 	height: 9rem;
 	width: 9rem;
+	object-fit: cover;
+	object-position: center 25%;
 	border-radius: 50%;
 	margin: .9rem 0 0 0;
 	float: left;
@@ -1785,21 +1752,23 @@ header .logo a {
 
 /** 
  * ===================================================================
- * 13. portfolio - (_layout.scss)
+ * 13. compañeros - (_layout.scss)
  *
  * ------------------------------------------------------------------- 
  */
-#portfolio {
+#companeros {
 	background: #FFFFFF;
 	padding-top: 12rem;
 	padding-bottom: 12rem;
 }
-#portfolio .folio-item {
+#companeros .folio-item {
 	padding: 0;
 	position: relative;
 	overflow: hidden;
 }
-#portfolio .folio-item img {
+#companeros .folio-item img {
+	width: 100%;
+	object-fit: cover;
 	vertical-align: middle;
 	-moz-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
@@ -1807,8 +1776,17 @@ header .logo a {
 	-ms-transition: all 0.5s ease-in-out;
 	transition: all 0.5s ease-in-out;
 }
+#companeros .companion-height-short img {
+	height: 28rem;
+}
+#companeros .companion-height-medium img {
+	height: 32rem;
+}
+#companeros .companion-height-tall img {
+	height: 36rem;
+}
 
-#portfolio .overlay {
+#companeros .overlay {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -1822,12 +1800,12 @@ header .logo a {
 	transition: all 0.5s ease-in-out;
 }
 
-#portfolio .folio-item-table {
+#companeros .folio-item-table {
 	display: table;
 	width: 100%;
 	height: 100%;
 }
-#portfolio .folio-item-cell {
+#companeros .folio-item-cell {
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
@@ -1840,13 +1818,13 @@ header .logo a {
 	left: -100%;
 }
 
-#portfolio .folio-title {
+#companeros .folio-title {
 	color: #FFFFFF;
 	font-size: 3.3rem;
 	padding: 0 3rem;
 	margin-bottom: 0;
 }
-#portfolio .folio-types {
+#companeros .folio-types {
 	margin: 0;
 	padding: 0;
 	text-transform: uppercase;
@@ -1855,13 +1833,13 @@ header .logo a {
 	letter-spacing: .1rem;
 	color: rgba(255, 255, 255, 0.6);
 }
-#portfolio .folio-item:hover .overlay {
+#companeros .folio-item:hover .overlay {
 	background: rgba(0, 0, 0, 0.8);
 }
-#portfolio .folio-item:hover .folio-item-cell {
+#companeros .folio-item:hover .folio-item-cell {
 	left: 0;
 }
-#portfolio .folio-item:hover img {
+#companeros .folio-item:hover img {
 	-webkit-transform: scale(1.05);
 	-ms-transform: scale(1.05);
 	transform: scale(1.05);
@@ -1869,21 +1847,21 @@ header .logo a {
 
 /**
  * responsive:
- * portfolio
+ * compañeros
  * ------------------------------------------------------------------- 
  */
 @media only screen and (max-width:1024px) {
-	#portfolio .folio-title {
+	#companeros .folio-title {
 		font-size: 3.1rem;
 	}
 }
 @media only screen and (max-width:768px) {
-	#portfolio .folio-title {
+	#companeros .folio-title {
 		font-size: 2.5rem;
 	}
 }
 @media only screen and (max-width:400px) {
-	#portfolio .folio-title {
+	#companeros .folio-title {
 		font-size: 2.2rem;
 	}
 }
@@ -1903,6 +1881,16 @@ header .logo a {
 }
 .popup-modal img {
 	vertical-align: bottom;
+}
+.popup-modal img.companion-crop {
+	width: 100%;
+	height: min(55vh, 42rem);
+	object-fit: cover;
+	object-position: center;
+}
+#companeros .folio-item .companion-crop-upper,
+.popup-modal img.companion-crop-upper {
+	object-position: center 20%;
 }
 .popup-modal .description-box {
 	padding: 1.8rem 3.6rem 3rem;
@@ -1955,10 +1943,164 @@ header .logo a {
 .popup-modal .link-box a:first-child {
 	border-right: 1px solid rgba(200, 200, 200, 0.1);
 }
+.popup-modal .link-box a:only-child {
+	width: 100%;
+	float: none;
+	border-right: 0;
+}
 .popup-modal .link-box a:hover {
 	background: #cc005f;
 	border: none;
 }
+
+/* Favorite books */
+#libros {
+	background: #F5F5F5;
+	padding: 12rem 0;
+}
+#libros .section-intro h5 {
+	color: #FF0077;
+}
+.book-carousel {
+	margin: 0 auto;
+	max-width: 1140px;
+}
+.book-carousel-item {
+	padding: 1rem;
+	text-align: center;
+}
+.book-cover-link {
+	display: block;
+	overflow: hidden;
+	background: #FFFFFF;
+	box-shadow: 0 .5rem 2rem rgba(0, 0, 0, .12);
+}
+.book-cover-link img {
+	width: 100%;
+	height: 36rem;
+	object-fit: contain;
+	transition: transform .3s ease;
+}
+.book-cover-link:hover img,
+.book-cover-link:focus img {
+	transform: scale(1.04);
+}
+.book-carousel-item h3 {
+	margin: 1.5rem 0 .3rem;
+	font-size: 1.6rem;
+	line-height: 1.4;
+}
+.book-carousel-item p {
+	margin: 0;
+	font-family: "poppins-regular", sans-serif;
+	font-size: 1.3rem;
+}
+#libros .owl-theme .owl-controls .owl-page span {
+	background: #BDBDBD;
+}
+#libros .owl-theme .owl-controls .owl-page.active span {
+	background: #FF0077;
+}
+#libros .owl-theme .owl-controls .owl-buttons {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	left: 0;
+	transform: translateY(-50%);
+	display: flex;
+	justify-content: space-between;
+	pointer-events: none;
+}
+#libros .owl-theme .owl-controls .owl-buttons div {
+	width: 4rem;
+	height: 4rem;
+	border-radius: 50%;
+	background: #FF0077;
+	color: #FFFFFF;
+	font-size: 2.8rem;
+	line-height: 3.6rem;
+	text-align: center;
+	pointer-events: auto;
+}
+#libros .owl-theme .owl-controls .owl-buttons .owl-prev {
+	margin-left: -2rem;
+}
+#libros .owl-theme .owl-controls .owl-buttons .owl-next {
+	margin-right: -2rem;
+}
+.book-modal {
+	max-width: 760px;
+}
+.book-modal-layout {
+	display: grid;
+	grid-template-columns: minmax(12rem, 20rem) minmax(0, 1fr);
+	gap: 2.8rem;
+	padding: 3rem;
+}
+.book-modal-cover {
+	width: 100%;
+	max-height: 32rem;
+	object-fit: contain;
+	background: #F5F5F5;
+}
+.book-modal-details {
+	min-width: 0;
+}
+.book-modal-heading {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 2rem;
+}
+.book-modal-title {
+	margin: 0 0 .5rem;
+	font-family: "poppins-bold", sans-serif;
+	font-size: 2rem;
+	line-height: 1.3;
+}
+.book-modal-author {
+	margin: 0;
+	font-size: 1.4rem;
+}
+.book-modal-rating {
+	flex: 0 0 auto;
+	text-align: right;
+	font-family: "poppins-medium", sans-serif;
+}
+.book-modal-score {
+	display: block;
+	color: #313131;
+	font-size: 1.5rem;
+	white-space: nowrap;
+}
+.book-modal-stars {
+	color: #F4B400;
+	letter-spacing: .1rem;
+	white-space: nowrap;
+}
+.book-modal-stars.is-pending {
+	color: #A0A0A0;
+}
+.book-modal-comment {
+	margin: 2.4rem 0 0;
+	font-size: 1.5rem;
+	line-height: 1.8;
+	overflow-wrap: anywhere;
+}
+@media only screen and (max-width:600px) {
+	#libros {
+		padding: 9rem 0;
+	}
+	.book-modal-layout {
+		grid-template-columns: 1fr;
+		gap: 1.8rem;
+		padding: 2rem;
+	}
+	.book-modal-cover {
+		max-height: 24rem;
+	}
+}
+
 @media only screen and (max-width:600px) {
 	.popup-modal {
 		width: auto;
@@ -2094,65 +2236,6 @@ header .logo a {
  *
  * ------------------------------------------------------------------- 
  */
-#services {
-	background: #313131 url(../images/bg.jpg) no-repeat center;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	padding-top: 12rem;
-	padding-bottom: 12rem;
-	color: white;
-	position: relative;
-}
-#services .overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: #151515;
-	opacity: .9;
-}
-
-#services .section-intro {
-	margin-bottom: 1.8rem;
-}
-
-#services .section-intro h1 {
-	color: white;
-}
-#services .section-intro h5 {
-	color: #FF0077;
-}
-#services .section-intro p {
-	color: rgba(255, 255, 255, 0.7);
-}
-.services-content {
-	max-width: 1200px;
-}
-.services-list {
-	margin-top: 1.2rem;
-	text-align: center;
-}
-.services-list .service {
-	margin-bottom: 1.2rem;
-	padding: 0 30px;
-}
-.services-list .icon {
-	display: inline-block;
-	margin-bottom: 2.1rem;
-}
-.services-list .icon i {
-	font-size: 5.4rem;
-	color: #FF0077;
-}
-.services-list h3 {
-	color: #FFFFFF;
-}
-.services-list .desc {
-	color: rgba(255, 255, 255, 0.6);
-}
-
 /* pagination */
 .owl-pagination {
 	text-align: center;
@@ -2245,7 +2328,7 @@ header .logo a {
 
 /** 
  * ===================================================================
- * 17. contact - (_layout.scss)
+ * 17. opinions and contact - (_layout.scss)
  *
  * ------------------------------------------------------------------- 
  */
@@ -2264,150 +2347,6 @@ header .logo a {
 	color: rgba(255, 255, 255, 0.7);
 }
 
-/* contact form */
-.contact-form {
-	max-width: 740px;
-}
-
-.contact-form ::-webkit-input-placeholder {
-	color: rgba(255, 255, 255, 0.3);
-}
-.contact-form :-moz-placeholder {
-	color: rgba(255, 255, 255, 0.3);  /* Firefox 18- */
-}
-.contact-form ::-moz-placeholder {
-	color: rgba(255, 255, 255, 0.3);  /* Firefox 19+ */
-}
-.contact-form :-ms-input-placeholder {
-	color: rgba(255, 255, 255, 0.3);
-}
-.contact-form .placeholder {
-	color: rgba(255, 255, 255, 0.3) !important;
-}
-
-#contact form {
-	margin-top: 0;
-	margin-bottom: 3rem;
-}
-#contact form .form-field {
-	position: relative;
-}
-#contact form .form-field:before, #contact form .form-field:after {
-	content: "";
-	display: table;
-}
-#contact form .form-field:after {
-	clear: both;
-}
-#contact form .form-field label {
-	font-family: "poppins-bold", sans-serif;
-	font-size: 1.1rem;
-	line-height: 2.4rem;
-	position: absolute;
-	bottom: -1.2rem;
-	right: .6rem;
-	text-transform: uppercase;
-	letter-spacing: .1rem;
-	padding: 0 2rem;
-	margin: 0;
-	color: #FFFFFF;
-	background: #FF0077;
-}
-#contact form .form-field label::after {
-	position: absolute;
-	left: -5px;
-	top: 50%;
-	margin-top: -6px;
-	border-top: 5px solid transparent;
-	border-bottom: 5px solid transparent;
-	border-right: 5px solid #FF0077;
-	content: "";
-}
-#contact input[type="text"],
-#contact input[type="password"],
-#contact input[type="email"],
-#contact textarea {
-	width: 100%;
-	color: rgba(255, 255, 255, 0.7);
-	margin-bottom: 0;
-	border: none;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-#contact input[type="text"],
-#contact input[type="password"],
-#contact input[type="email"] {
-	height: 6.6rem;
-	padding: 1.8rem 2rem;
-}
-#contact input[type="text"]:focus,
-#contact input[type="password"]:focus,
-#contact input[type="email"]:focus {
-	border-color: #FF0077;
-	color: #FFFFFF;
-}
-#contact textarea {
-	min-height: 20rem;
-	padding: 1.8rem 2rem;
-}
-#contact textarea:focus {
-	border-color: #FF0077;
-	color: #FFFFFF;
-}
-#contact button.submitform {
-	font-size: 1.5rem;
-	display: block;
-	letter-spacing: .2rem;
-	height: 6.6rem;
-	line-height: 6.6rem;
-	padding: 0 3rem;
-	margin-top: 4.8rem;
-	width: 100%;
-	background: #FF0077;
-	color: #FFFFFF;
-}
-#contact button.submitform:hover, #contact button.submitform:focus {
-	background: #cc005f;
-}
-#message-warning, #message-success {
-	display: none;
-	background: #0d0d0d;
-	border-radius: 3px;
-	padding: 3rem;
-	margin-bottom: 3.6rem;
-	width: 100%;
-}
-#message-warning {
-	color: #fa0003;
-}
-#message-success {
-	color: #FF0077;
-}
-#message-warning i, #message-success i {
-	margin-right: 10px;
-}
-
-/* form loader */
-#submit-loader {
-	display: none;
-	position: relative;
-	left: 0;
-	top: 1.8rem;
-	width: 100%;
-	text-align: center;
-}
-#submit-loader .text-loader {
-	display: none;
-	font-family: "poppins-bold", sans-serif;
-	color: #FFFFFF;
-	letter-spacing: .3rem;
-	text-transform: uppercase;
-}
-.oldie #submit-loader .s-loader {
-	display: none;
-}
-.oldie #submit-loader .text-loader {
-	display: block;
-}
 .contact-info {
 	margin: 4.8rem auto 0;
 	font-family: "poppins-regular", sans-serif;
@@ -2428,60 +2367,88 @@ header .logo a {
 	color: #FF0077;
 }
 
-/**
- * loader animation - (_layout.scss)
- * --------------------------------------------------------------- 
- */
-.s-loader {
-	margin: 1.2rem auto 3rem;
-	width: 70px;
-	text-align: center;
-	-webkit-transform: translateX(0.45rem);
-	-ms-transform: translateX(0.45rem);
-	transform: translateX(0.45rem);
+/* opinions */
+#opinions {
+	background: #151515;
+	padding: 12rem 0 7.2rem;
 }
-.s-loader > div {
-	width: 1rem;
-	height: 1rem;
-	background-color: #FFFFFF;
-	border-radius: 100%;
-	display: inline-block;
-	margin-right: .9rem;
-	-webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-	animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+#opinions .section-intro h1 {
+	color: #FFFFFF;
 }
-.s-loader .bounce1 {
-	-webkit-animation-delay: -0.32s;
-	animation-delay: -0.32s;
+#opinions .section-intro h5 {
+	color: #FF0077;
 }
-.s-loader .bounce2 {
-	-webkit-animation-delay: -0.16s;
-	animation-delay: -0.16s;
+#opinions .section-intro p {
+	color: rgba(255, 255, 255, 0.7);
 }
-@-webkit-keyframes sk-bouncedelay {
-	0%, 80%, 100% {
-		-webkit-transform: scale(0);
-		-ms-transform: scale(0);
-		transform: scale(0);
+.opinions-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+	gap: 2.4rem;
+	width: min(94%, 1140px);
+	max-width: 1140px;
+	margin: 0 auto;
+}
+.opinion-card {
+	min-width: 0;
+	padding: 2.4rem;
+	background: #FFFFFF;
+	border-radius: .8rem;
+	box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.18);
+}
+.opinion-header {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+}
+.opinion-details {
+	min-width: 0;
+}
+.opinion-avatar {
+	flex: 0 0 5.6rem;
+	width: 5.6rem;
+	height: 5.6rem;
+	object-fit: cover;
+	border-radius: 50%;
+	background: #F0F0F0;
+}
+.opinion-name {
+	margin: 0 0 .5rem;
+	font-family: "poppins-semibold", sans-serif;
+	font-size: 1.5rem;
+	line-height: 1.4;
+	overflow-wrap: anywhere;
+}
+.opinion-rating {
+	display: flex;
+	align-items: center;
+	gap: .8rem;
+	font-family: "poppins-regular", sans-serif;
+	font-size: 1.3rem;
+}
+.opinion-score {
+	color: #313131;
+}
+.opinion-stars {
+	color: #F4B400;
+	letter-spacing: .1rem;
+}
+.opinion-text {
+	margin: 1.8rem 0 0;
+	color: #6E6E6E;
+	font-size: 1.5rem;
+	line-height: 1.7;
+	overflow-wrap: anywhere;
+}
+@media only screen and (max-width:600px) {
+	#opinions {
+		padding-top: 9rem;
 	}
-	40% {
-		-webkit-transform: scale(1);
-		-ms-transform: scale(1);
-		transform: scale(1);
+	.opinion-card {
+		padding: 2rem;
 	}
 }
-@keyframes sk-bouncedelay {
-	0%, 80%, 100% {
-		-webkit-transform: scale(0);
-		-ms-transform: scale(0);
-		transform: scale(0);
-	}
-	40% {
-		-webkit-transform: scale(1);
-		-ms-transform: scale(1);
-		transform: scale(1);
-	}
-}
+
 
 
 /** 
