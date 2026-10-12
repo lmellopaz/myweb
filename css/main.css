@@ -977,6 +977,18 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 .skill-bars li .percent100 { width: 100%; }
 .skill-bars li .percent200 { width: 200%; }
 
+@media only screen and (max-width:768px) {
+	html,
+	body {
+		max-width: 100%;
+		overflow-x: hidden;
+		overflow-x: clip;
+	}
+
+	.skill-bars {
+		overflow-x: clip;
+	}
+}
 
 /** 
  * ===================================================================
