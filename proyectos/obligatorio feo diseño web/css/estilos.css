@@ -1,0 +1,473 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+html{
+    scroll-behavior:smooth ;
+    background: rgb(172,171,170);
+    background: linear-gradient(90deg, rgba(172,171,170,1) 5%, rgba(255,255,255,1) 44%, rgba(172,171,170,1) 91%);
+}
+
+
+.centrado {
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+
+
+h3{
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Fira Code', monospace;
+}
+
+p,a{
+    font-family: 'El Messiri', sans-serif;
+font-family: 'Fira Code', monospace;
+}
+p{
+    font-size: 20px;
+}
+
+#galeria, #alojamiento{
+    background: rgb(241,238,238);
+    background: linear-gradient(90deg, rgba(241,238,238,1) 10%, rgba(102,94,85,1) 50%, rgba(241,238,238,1) 89%);
+}
+
+
+h2{
+    margin-top: 50px;
+    text-align: center;
+    font-family: 'Fira Code', monospace;
+}
+
+
+
+.flexbox {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+section{
+    margin-top: 30px;
+}
+
+
+
+
+
+/* -------------------------------  LOGO  -------------------------------------------- */
+header+img{
+    display:inline;
+    float: left;
+
+}
+
+/* -------------------------------  FIN LOGO  -------------------------------------------- */
+
+
+/* -------------------------------  MENU  -------------------------------------------- */
+#menu{
+    padding-top: 10%;
+    float: right;
+}
+
+
+#menu ul, ul{
+    list-style-type:none;
+    font-size: 0;
+}
+
+#menu ul li, ul li{
+    display: inline-block;
+    font-size: 13px;
+    margin-right: 5px;
+}
+
+#menu ul>:last-child{
+    margin-right: 0;
+    text-align: center;
+    
+}
+
+#menu ul li>:last-child{
+    margin-right: 0;
+}
+
+/* boton en reposo */
+#menu ul li a, ul li a{
+text-decoration: none;
+color:black;
+display: block;
+
+background-color: #858585;
+padding: 20px;
+text-align: center;
+border-radius: 25px;
+border:5px solid transparent;
+
+transition: all .3s ease;
+}
+
+/* paso por arriba */
+#menu ul li a:hover, ul li a:hover{
+border-color: #383838;
+box-shadow: 0 0 25px #919191;
+}
+
+
+
+/* -------------------------------  FIN MENU  -------------------------------------------- */
+
+
+
+
+/* -------------------------------  VENTANA  -------------------------------------------- */
+#ventana{
+    background: url(../img/fondo.jpeg) no-repeat center center fixed;
+    background-size: cover;
+    height: 400px;
+    text-align: center;
+    margin: 0 auto;
+    padding:125px;
+
+}
+
+#ventana p{
+    font-size: 36px;
+    color:#854f05;
+    font-family: 'Birthstone', cursive;
+
+}
+#ventana h1{
+    font-size: 80px;
+    color:#b35d47;
+    font-family: 'Fira Code', monospace;
+}
+
+/* -------------------------------  FIN VENTANA  -------------------------------------------- */
+
+
+
+/* -------------------------------  NOTICIAS  -------------------------------------------- */
+
+#divNoticias{
+        gap: 2rem;
+        align-items: flex-start;
+    }
+
+
+
+#divNoticias article {
+    flex: 1;
+    padding: 1rem;
+}
+
+
+#divNoticias figure img {
+        width: 100%;
+}
+
+
+
+
+/* -------------------------------  FIN NOTICIAS  -------------------------------------------- */
+
+
+/* -------------------------------  GALERIA  -------------------------------------------- */
+
+
+#galeria div{
+
+    display: grid;
+    grid-row-gap:1rem;
+    grid-column-gap: 1rem;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    
+}
+
+#galeria h2{
+width: 100%;
+text-align: center;
+margin-top: 50px;
+margin-bottom: 50px;
+}
+#galeria img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+#galeria figure:nth-of-type(1){
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+
+}
+
+#galeria figure:nth-of-type(2){
+
+    grid-row: 1 / 1;
+    grid-column: 2 / span 2;
+
+}
+
+#galeria figure:nth-of-type(3){
+    grid-row: 1 / span 2;
+    grid-column: 4 / 4;
+
+}
+
+#galeria figure:nth-of-type(4){
+    grid-row: 1 / 1;
+    grid-column: 5 / 5;
+
+}
+
+#galeria figure:nth-of-type(5){
+    grid-row: 2/2;
+    grid-column: 1 / span 2;
+
+}
+
+#galeria figure:nth-of-type(6){
+    grid-row: 2 / 2;
+    grid-column: 3 / 3;
+
+}
+
+#galeria figure:nth-of-type(7){
+    grid-row: 2 / 2;
+    grid-column: 5 / 5;
+}
+
+
+
+
+
+/* -------------------------------  FIN GALERIA  -------------------------------------------- */
+
+
+/* -------------------------------  OPINIONES  -------------------------------------------- */
+
+
+
+
+
+#opiniones>h2{
+    width: 100%;
+}
+#opiniones div{
+    display: flex;
+    margin-bottom: 30px;
+    gap: 1rem;
+}
+
+
+
+
+#opiniones div article{
+    flex: 1;
+display: flex;
+
+}
+#opiniones div article DIV{
+  
+    flex-direction: column;
+    
+    }
+
+#opiniones div article DIV:nth-of-type(1){
+    flex:1;
+ 
+}
+
+#opiniones div article DIV:nth-of-type(2){
+    flex:3;        
+    
+}
+
+#opiniones div article div ul{
+    display: inline-block;
+}
+
+#opiniones div article div p:nth-of-type(2){
+    display: inline-block;
+    
+}
+#opiniones div article div p:nth-of-type(1){
+    margin-bottom: 15px;
+}
+#opiniones div article div div{
+    align-items: center;
+
+}
+
+
+.nivel{
+    display: block;
+    margin-top: 10px;
+    }
+    
+
+#opiniones figure.fotoperfil img{
+    width: 100px;
+    border-radius: 45px;
+    margin-right: 15px;
+    justify-content: right;
+}
+
+
+
+.nivel figure img{
+width: 30px;
+display:inline-block;
+}
+
+
+
+/* -------------------------------  FIN OPINIONES  -------------------------------------------- */
+
+
+
+/* -------------------------------  ALOJAMIENTO  -------------------------------------------- */
+
+#alojamiento div{
+    display:flex;
+    align-items: flex-start;
+
+}
+
+
+#alojamiento>div>h2{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+
+
+
+table{
+    flex:1;
+    border-collapse: collapse;
+}
+
+table, table th, table td {
+    border: 1px solid #42171c;
+}
+
+
+
+table tr:nth-of-type(2n) th, table tr:nth-of-type(2n) td {
+    background-color: rgb(151, 78, 78);
+}
+
+
+table  th, table td {
+    padding: 8px;
+}
+
+table td {
+    text-align: center;
+}
+
+
+
+form {
+    flex:2;
+    margin-left: 50px;
+    border: 1px solid rgb(58, 10, 10);
+    border-radius: 7px;
+    padding: 10px;
+    background-color: rgb(151, 78, 78);
+
+}
+select{
+    width: 300px;
+    font-size: 20px;
+
+}
+
+
+
+form div:nth-of-type(2),form div:nth-of-type(3){
+    display: block;
+    margin-top:10px;
+}
+
+
+label, input,select,input[type=radio],input[type=checkbox] {
+    margin-top: 20px;
+
+}
+
+
+
+
+
+
+
+label{
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 4px;
+}
+
+
+
+input[type=checkbox]{
+    margin-left: 30px;
+}
+
+input[type=date],
+select,
+input[type=submit]
+{
+border-radius: 5px;
+
+display: inline-block;
+}
+
+input[type=submit]{
+    margin-left: 100px;
+}
+
+
+/* -------------------------------  FIN ALOJAMIENTO  -------------------------------------------- */
+
+
+
+
+/* -------------------------------  FOOTER  -------------------------------------------- */
+
+footer{
+    background: rgb(148, 148, 148);
+    text-align: center;
+}
+
+
+footer h2{
+    display: inline-block;
+}
+footer a{
+    display: inline-block;
+}
+
+footer img{
+    vertical-align: middle;
+
+    margin-right: 15px;
+    padding-bottom: 15px;
+    width: 50px;
+}
+
+
+/* -------------------------------  FIN FOOTER  -------------------------------------------- */

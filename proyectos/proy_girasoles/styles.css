@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: #f9d7d7;
+    flex-wrap: wrap;
+}
+
+.garden {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    width: 80%;
+}
+
+.flower-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.sunflower {
+    width: 150px;
+    height: 150px;
+    background-color: #8b4513;
+    border-radius: 50%;
+    position: relative;
+}
+
+.sunflower::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background-color: #8b4513;
+    border-radius: 50%;
+}
+
+/* Estilos para el tallo */
+.stem {
+    width: 10px;
+    height: 375px; /* 2.5 veces la altura del girasol */
+    background-color: green; /* El color se asignará en JS */
+}
+
+/* Estilos para las hojas */
+.leaf {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 40px solid; /* El color se asigna en JS */
+}
+
+.leafstem {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 0px solid transparent;
+    border-right: 0px solid transparent;
+    border-bottom: 40px solid; /* El color se asigna en JS */
+}
+/* Abejas */
+.bee {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bee::before, .bee::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #c0c0c0;
+    border-radius: 50%;
+    top: -5px;
+}
+
+.bee::before {
+    left: -12px;
+}
+
+.bee::after {
+    right: -12px;
+}
+
+.bee .stripe {
+    width: 100%;
+    height: 4px;
+    background-color: black;
+    border-radius: 2px;
+}
+
+/* Cambios responsivos */
+@media (max-width: 500px) {
+    .garden {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .flower-container {
+        margin-bottom: 10px;
+    }
+
+    .bee {
+        width: 30px;
+        height: 15px;
+    }
+
+    .bee::before, .bee::after {
+        width: 10px;
+        height: 10px;
+    }
+
+    .bee .stripe {
+        height: 3px;
+    }
+}
+/* Código anterior... */
+
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-style: italic;
+    margin: 0 10px;
+    color:rgb(239, 150, 7);
+}
+
+.title-sunflower {
+    width: 30px; /* Tamaño del girasol del título */
+    height: 30px; 
+    background-color: #ffcc00; /* Color marrón del centro */
+    border-radius: 50%;
+    position: relative;
+}
+
+/* Estilo del girasol del título */
+.title-sunflower::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px; /* Tamaño del círculo amarillo */
+    height: 15px; 
+    background-color: #8b4513; /* Color amarillo */
+    border-radius: 50%;
+}
+
+/* Resto del código CSS... */

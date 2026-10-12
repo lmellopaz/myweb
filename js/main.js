@@ -36,33 +36,18 @@
 
 
 	/*---------------------------------------------------- */
-	/* FitVids
-	------------------------------------------------------ */ 
-  	$(".fluid-video-wrapper").fitVids();
-
-
-	/*---------------------------------------------------- */
 	/* Owl Carousel
 	------------------------------------------------------ */ 
 	$("#owl-slider").owlCarousel({
-        navigation: false,
+        navigation: true,
         pagination: true,
         itemsCustom : [
 	        [0, 1],
 	        [700, 2],
 	        [960, 3]
 	     ],
-        navigationText: false
+        navigationText: ["‹", "›"]
     });
-
-
-	/*----------------------------------------------------- */
-	/* Alert Boxes
-  	------------------------------------------------------- */
-	$('.alert-box').on('click', '.close', function() {
-	  $(this).parent().fadeOut(500);
-	});	
-
 
 	/*----------------------------------------------------- */
 	/* Stat Counter
@@ -118,7 +103,7 @@
 	/*----------------------------------------------------*/
 	/*	Modal Popup
 	------------------------------------------------------*/
-   $('.item-wrap a').magnificPopup({
+   $('.item-wrap a:not(.book-cover-link)').magnificPopup({
 
       type:'inline',
       fixedContentPos: false,
@@ -126,6 +111,40 @@
       showCloseBtn: false,
       mainClass: 'mfp-fade'
 
+   });
+
+   $('.book-cover-link').magnificPopup({
+      type: 'inline',
+      fixedContentPos: false,
+      removalDelay: 300,
+      showCloseBtn: false,
+      mainClass: 'mfp-fade',
+      callbacks: {
+         open: function() {
+            var bookLink = this.st.el,
+                bookImage = bookLink.find('img'),
+                bookRating = bookLink.attr('data-rating'),
+                ratingValue = parseFloat(bookRating),
+                ratingStars = '',
+                starIndex;
+
+            for (starIndex = 1; starIndex <= 5; starIndex++) {
+               ratingStars += !isNaN(ratingValue) && ratingValue >= starIndex - 0.5 ? '★' : '☆';
+            }
+
+            $('#book-modal .book-modal-cover')
+               .attr('src', bookImage.attr('src'))
+               .attr('alt', bookImage.attr('alt'));
+            $('#book-modal .book-modal-title').text(bookLink.attr('data-title'));
+            $('#book-modal .book-modal-author').text(bookLink.attr('data-author'));
+            $('#book-modal .book-modal-score').text(bookRating + ' / 5');
+            $('#book-modal .book-modal-stars')
+               .text(ratingStars)
+               .toggleClass('is-pending', isNaN(ratingValue))
+               .attr('aria-label', isNaN(ratingValue) ? 'Calificación pendiente' : 'Calificación: ' + bookRating + ' de 5');
+            $('#book-modal .book-modal-comment').text(bookLink.attr('data-comment'));
+         }
+      }
    });
 
    $(document).on('click', '.popup-modal-dismiss', function (e) {
@@ -145,17 +164,25 @@
 
 		e.preventDefault();
 		toggleButton.toggleClass('is-clicked');
-		nav.slideToggle();
+		nav.stop(true, true).slideToggle();
 
 	});
+
+   // close the menu when clicking outside it
+   $(document).on('click', function(e) {
+      if (!$(e.target).closest('#main-nav-wrap, .menu-toggle').length && nav.is(':visible')) {
+         nav.stop(true, true).slideUp();
+         toggleButton.removeClass('is-clicked');
+      }
+   });
 
    // nav items
   	nav.find('li a').on("click", function() {   
 
-   	// update the toggle button 		
-   	toggleButton.toggleClass('is-clicked'); 
+   	// update the toggle button
+   	toggleButton.removeClass('is-clicked'); 
    	// fadeout the navigation panel
-   	nav.fadeOut();   		
+   	nav.stop(true, true).fadeOut();   		
    	     
   	});
 
@@ -206,67 +233,8 @@
   	});  
   
 
-   /*---------------------------------------------------- */
-	/*  Placeholder Plugin Settings
-	------------------------------------------------------ */ 
-	$('input, textarea, select').placeholder()  
-
-
-  	/*---------------------------------------------------- */
-	/*	contact form
-	------------------------------------------------------ */
-
-	/* local validation */
-	$('#contactForm').validate({
-
-		/* submit via ajax */
-		submitHandler: function(form) {
-
-			var sLoader = $('#submit-loader');
-
-			$.ajax({      	
-
-		      type: "POST",
-		      url: "inc/sendEmail.php",
-		      data: $(form).serialize(),
-		      beforeSend: function() { 
-
-		      	sLoader.fadeIn(); 
-
-		      },
-		      success: function(msg) {
-
-	            // Message was sent
-	            if (msg == 'OK') {
-	            	sLoader.fadeOut(); 
-	               $('#message-warning').hide();
-	               $('#contactForm').fadeOut();
-	               $('#message-success').fadeIn();   
-	            }
-	            // There was an error
-	            else {
-	            	sLoader.fadeOut(); 
-	               $('#message-warning').html(msg);
-		            $('#message-warning').fadeIn();
-	            }
-
-		      },
-		      error: function() {
-
-		      	sLoader.fadeOut(); 
-		      	$('#message-warning').html("Something went wrong. Please try again.");
-		         $('#message-warning').fadeIn();
-
-		      }
-
-	      });     		
-  		}
-
-	});
-
-
  	/*----------------------------------------------------- */
-  	/* Back to top
+   /* Back to top
    ------------------------------------------------------- */ 
 	var pxShow = 300; // height on which the button will show
 	var fadeInTime = 400; // how slow/fast you want the button to show
