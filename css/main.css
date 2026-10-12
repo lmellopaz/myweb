@@ -985,8 +985,20 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 		overflow-x: clip;
 	}
 
-	.skill-bars {
-		overflow-x: clip;
+	.skill-bars li .percent200 {
+		width: calc(100vw - 45px);
+	}
+}
+
+@media only screen and (max-width:600px) {
+	.skill-bars li .percent200 {
+		width: calc(100vw - 35px);
+	}
+}
+
+@media only screen and (max-width:400px) {
+	.skill-bars li .percent200 {
+		width: calc(100vw - 25px);
 	}
 }
 

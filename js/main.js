@@ -103,6 +103,12 @@
 	/*----------------------------------------------------*/
 	/*	Modal Popup
 	------------------------------------------------------*/
+   var bookModalScrollTop = 0;
+
+   $('.book-cover-link').on('click', function() {
+      bookModalScrollTop = $('#libros').offset().top;
+   });
+
    $('.item-wrap a:not(.book-cover-link)').magnificPopup({
 
       type:'inline',
@@ -143,6 +149,9 @@
                .toggleClass('is-pending', isNaN(ratingValue))
                .attr('aria-label', isNaN(ratingValue) ? 'Calificación pendiente' : 'Calificación: ' + bookRating + ' de 5');
             $('#book-modal .book-modal-comment').text(bookLink.attr('data-comment'));
+         },
+         afterClose: function() {
+            window.scrollTo(0, bookModalScrollTop);
          }
       }
    });
