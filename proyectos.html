@@ -47,8 +47,47 @@
 			<div class="projects-own-links">
 				<a class="button button-primary" href="https://impostor-game-vfk4.onrender.com/" data-project-link="importor" target="_blank" rel="noopener noreferrer">Importor</a>
 				<a class="button button-primary" href="https://toti-froti.onrender.com/" data-project-link="toti-froti" target="_blank" rel="noopener noreferrer">Toti Froti</a>
+				<button class="button button-primary photo-with-vashito-open" type="button" aria-haspopup="dialog" aria-controls="photo-with-vashito">Foto con Vashito</button>
 			</div>
 		</section>
+
+		<dialog id="photo-with-vashito" class="photo-with-vashito-dialog" aria-labelledby="photo-with-vashito-title">
+			<div class="photo-with-vashito-header">
+				<div>
+					<h2 id="photo-with-vashito-title">Foto con Vashito</h2>
+					<p id="camera-status" role="status" aria-live="polite">Solicitando acceso a la cámara...</p>
+				</div>
+				<button class="photo-with-vashito-close" type="button" aria-label="Cerrar cámara">&times;</button>
+			</div>
+			<div class="photo-with-vashito-stage" aria-label="Vista previa de la foto compuesta">
+				<img class="photo-background" src="images/fotovashito/fondos/altar.jpg" alt="">
+				<video class="camera-source" autoplay muted playsinline aria-label="Fuente de cámara para recortar el fondo"></video>
+				<canvas class="camera-preview" aria-label="Vista previa de la cámara sin fondo"></canvas>
+				<img class="vashito-overlay" src="images/fotovashito/vashito.png" alt="Vashito en la foto">
+				<img class="photo-captured-preview" alt="Foto tomada con Vashito">
+				<div class="camera-preview-message">La vista previa de la cámara aparecerá aquí.</div>
+				<div class="camera-countdown" aria-live="assertive" aria-atomic="true"></div>
+			</div>
+			<div class="photo-with-vashito-controls">
+				<button class="photo-background-previous" type="button" aria-label="Fondo anterior">&#8592;</button>
+				<span class="photo-background-name" aria-live="polite">Altar</span>
+				<button class="photo-background-next" type="button" aria-label="Fondo siguiente">&#8594;</button>
+			</div>
+			<div class="photo-capture-controls">
+				<label for="photo-countdown-duration">Cuenta regresiva</label>
+				<select id="photo-countdown-duration" class="photo-countdown-duration">
+					<option value="3">3 segundos</option>
+					<option value="5" selected>5 segundos</option>
+					<option value="10">10 segundos</option>
+				</select>
+				<button class="photo-capture-button" type="button" disabled>Tomar foto (5 s)</button>
+			</div>
+			<div class="photo-result-controls" hidden>
+				<a class="photo-download-button" download="foto-con-vashito.png">Descargar foto</a>
+				<button class="photo-retake-button" type="button">Volver a tomar</button>
+			</div>
+			<p class="photo-with-vashito-note">La cámara se procesa en este dispositivo. Puedes descargar la foto compuesta; no se envía al servidor.</p>
+		</dialog>
 
 		<section id="proyectos-anteriores" class="projects-archive-section">
 			<div class="row section-intro">
@@ -96,6 +135,7 @@
 	<script src="js/jquery-2.1.3.min.js"></script>
 	<script src="js/plugins.js"></script>
 	<script src="js/main.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@mediapipe/selfie_segmentation@0.1.1675465747/selfie_segmentation.js"></script>
 	<script src="js/proyectos.js"></script>
 </body>
 </html>
