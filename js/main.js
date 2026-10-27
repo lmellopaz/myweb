@@ -115,7 +115,25 @@
       fixedContentPos: false,
       removalDelay: 300,
       showCloseBtn: false,
-      mainClass: 'mfp-fade'
+      mainClass: 'mfp-fade',
+      callbacks: {
+         open: function() {
+            var gallery = this.content.find('.companion-gallery');
+
+            if (gallery.length && !gallery.data('owlCarousel')) {
+               gallery.owlCarousel({
+                  singleItem: true,
+                  navigation: gallery.children().length > 1,
+                  pagination: false,
+                  navigationText: ["‹", "›"],
+                  slideSpeed: 300,
+                  rewindNav: true,
+                  touchDrag: true,
+                  mouseDrag: true
+               });
+            }
+         }
+      }
 
    });
 
