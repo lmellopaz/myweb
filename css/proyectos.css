@@ -63,6 +63,262 @@
 .projects-own-links .button {
 	margin: 0;
 }
+.projects-own-links .photo-with-vashito-open {
+	cursor: pointer;
+}
+.photo-with-vashito-dialog {
+	width: min(92vw, 760px);
+	max-width: none;
+	max-height: 92vh;
+	padding: 2rem;
+	border: 0;
+	border-radius: .8rem;
+	color: #313131;
+	box-shadow: 0 1.5rem 5rem rgba(0, 0, 0, .35);
+}
+.photo-with-vashito-dialog::backdrop {
+	background: rgba(15, 15, 15, .78);
+	backdrop-filter: blur(3px);
+}
+.photo-with-vashito-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1.5rem;
+}
+.photo-with-vashito-header h2 {
+	margin: 0;
+	font-family: "poppins-medium", sans-serif;
+	font-size: 2.4rem;
+	line-height: 1.3;
+}
+.photo-with-vashito-header p {
+	margin: .6rem 0 1.2rem;
+	font-family: "poppins-regular", sans-serif;
+	font-size: 1.3rem;
+	line-height: 1.5;
+}
+.photo-with-vashito-close {
+	flex: 0 0 4rem;
+	width: 4rem;
+	height: 4rem;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: #F0F0F0;
+	color: #313131;
+	font-size: 2.8rem;
+	line-height: 1;
+	cursor: pointer;
+}
+.photo-with-vashito-stage {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	overflow: hidden;
+	background: #E5E5E5;
+	isolation: isolate;
+}
+.photo-with-vashito-stage .photo-background,
+.photo-with-vashito-stage .camera-preview,
+.photo-with-vashito-stage .vashito-overlay,
+.photo-with-vashito-stage .photo-captured-preview {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+}
+.photo-with-vashito-stage .photo-background {
+	z-index: 0;
+	object-fit: cover;
+}
+.photo-with-vashito-stage .camera-source {
+	display: none;
+}
+.photo-with-vashito-stage .camera-preview {
+	z-index: 2;
+	display: block;
+	background: transparent;
+	object-fit: cover;
+	transform: scaleX(-1);
+}
+.photo-with-vashito-stage .vashito-overlay {
+	z-index: 1;
+	object-fit: contain;
+	object-position: center bottom;
+	pointer-events: none;
+}
+.photo-with-vashito-stage .photo-captured-preview {
+	z-index: 3;
+	display: none;
+	object-fit: contain;
+	background: #E5E5E5;
+}
+.photo-with-vashito-stage.has-captured-photo .photo-background,
+.photo-with-vashito-stage.has-captured-photo .camera-preview,
+.photo-with-vashito-stage.has-captured-photo .vashito-overlay {
+	display: none;
+}
+.photo-with-vashito-stage.has-captured-photo .photo-captured-preview {
+	display: block;
+}
+.photo-capture-controls.is-hidden,
+.photo-with-vashito-controls.is-hidden,
+.photo-result-controls[hidden] {
+	display: none;
+}
+.camera-preview-message {
+	position: absolute;
+	right: 1rem;
+	bottom: 1rem;
+	left: 1rem;
+	z-index: 3;
+	padding: .8rem 1rem;
+	border-radius: .4rem;
+	background: rgba(0, 0, 0, .65);
+	color: #FFFFFF;
+	font-family: "poppins-regular", sans-serif;
+	font-size: 1.2rem;
+	text-align: center;
+}
+.photo-with-vashito-stage.is-camera-ready .camera-preview-message {
+	display: none;
+}
+.camera-countdown {
+	position: absolute;
+	inset: 0;
+	z-index: 4;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, .18);
+	color: #FFFFFF;
+	font-family: "poppins-bold", sans-serif;
+	font-size: clamp(6rem, 18vw, 14rem);
+	line-height: 1;
+	text-shadow: 0 .4rem 2rem rgba(0, 0, 0, .65);
+	pointer-events: none;
+}
+.camera-countdown.is-visible {
+	display: flex;
+}
+.photo-with-vashito-controls {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1.5rem;
+	margin: 1.2rem 0 .4rem;
+}
+.photo-with-vashito-controls button {
+	width: 4.2rem;
+	height: 4.2rem;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: #313131;
+	color: #FFFFFF;
+	font-size: 2.6rem;
+	line-height: 1;
+	cursor: pointer;
+}
+.photo-with-vashito-controls button:hover,
+.photo-with-vashito-controls button:focus {
+	background: #FF0077;
+}
+.photo-background-name {
+	min-width: 9rem;
+	font-family: "poppins-medium", sans-serif;
+	font-size: 1.4rem;
+	text-align: center;
+}
+.photo-with-vashito-note {
+	margin: .5rem 0 0;
+	color: #666666;
+	font-family: "poppins-regular", sans-serif;
+	font-size: 1.15rem;
+	line-height: 1.5;
+	text-align: center;
+}
+.photo-capture-controls {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin: 1.2rem 0 .6rem;
+}
+.photo-capture-controls label {
+	margin: 0;
+	font-family: "poppins-medium", sans-serif;
+	font-size: 1.3rem;
+}
+.photo-countdown-duration {
+	width: auto;
+	min-width: 13rem;
+	height: 4.4rem;
+	margin: 0;
+	padding: 0 1.2rem;
+	border: 1px solid #D5D5D5;
+	border-radius: .4rem;
+	background: #FFFFFF;
+	color: #313131;
+	font-family: "poppins-regular", sans-serif;
+	font-size: 1.3rem;
+}
+.photo-capture-button {
+	min-height: 4.4rem;
+	margin: 0;
+	padding: 0 1.8rem;
+	border: 0;
+	border-radius: .4rem;
+	background: #FF0077;
+	color: #FFFFFF;
+	font-family: "poppins-medium", sans-serif;
+	font-size: 1.3rem;
+	cursor: pointer;
+}
+.photo-capture-button:hover,
+.photo-capture-button:focus {
+	background: #CC005F;
+}
+.photo-capture-button:disabled {
+	background: #999999;
+	cursor: not-allowed;
+}
+.photo-result-controls {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin: 1.2rem 0 .6rem;
+}
+.photo-download-button,
+.photo-retake-button {
+	display: inline-flex;
+	min-height: 4.4rem;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 0 1.8rem;
+	border: 0;
+	border-radius: .4rem;
+	background: #FF0077;
+	color: #FFFFFF;
+	font-family: "poppins-medium", sans-serif;
+	font-size: 1.3rem;
+	line-height: 1;
+	text-decoration: none;
+	cursor: pointer;
+}
+.photo-download-button:hover,
+.photo-download-button:focus,
+.photo-retake-button:hover,
+.photo-retake-button:focus {
+	background: #CC005F;
+	color: #FFFFFF;
+}
 .projects-archive-section {
 	background: #F5F5F5;
 }
@@ -147,6 +403,35 @@
 	}
 	.projects-own-links {
 		gap: 1rem;
+	}
+	.photo-with-vashito-dialog {
+		width: auto;
+		max-width: none;
+		margin: auto 1rem;
+		padding: 1.4rem;
+	}
+	.photo-with-vashito-header h2 {
+		font-size: 2rem;
+	}
+	.photo-with-vashito-stage {
+		aspect-ratio: 3 / 4;
+	}
+	.photo-capture-controls {
+		gap: .8rem;
+	}
+	.photo-capture-controls label {
+		flex: 1 0 100%;
+		text-align: center;
+	}
+	.photo-countdown-duration,
+	.photo-capture-button,
+	.photo-download-button,
+	.photo-retake-button {
+		flex: 1 1 0;
+		min-width: 0;
+		padding-right: .8rem;
+		padding-left: .8rem;
+		font-size: 1.15rem;
 	}
 	.project-viewer {
 		width: 94%;
