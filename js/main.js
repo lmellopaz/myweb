@@ -121,6 +121,27 @@
             var gallery = this.content.find('.companion-gallery');
 
             if (gallery.length && !gallery.data('owlCarousel')) {
+               var companionFolder = gallery.attr('data-companion-folder'),
+                   photoCount = Number(gallery.attr('data-companion-photos')),
+                   firstImage = gallery.find('.companion-slide img').first(),
+                   companionName = firstImage.attr('alt'),
+                   imageClass = firstImage.attr('class');
+
+               for (var photoNumber = 1; photoNumber <= photoCount; photoNumber++) {
+                  var slide = $('<div class="companion-slide"></div>'),
+                      image = $('<img>').attr({
+                         src: 'images/compañeros/mas/' + companionFolder + '/' + companionFolder + '-' + photoNumber + '.jpeg',
+                         alt: companionName + ' - foto ' + (photoNumber + 1)
+                      });
+
+                  if (imageClass) {
+                     image.addClass(imageClass);
+                  }
+
+                  slide.append(image);
+                  gallery.append(slide);
+               }
+
                gallery.owlCarousel({
                   singleItem: true,
                   navigation: gallery.children().length > 1,
