@@ -132,6 +132,12 @@
 	z-index: 0;
 	object-fit: cover;
 }
+.photo-with-vashito-stage.contain-photo-background {
+	background: #151515;
+}
+.photo-with-vashito-stage.contain-photo-background .photo-background {
+	object-fit: contain;
+}
 .photo-with-vashito-stage .camera-source {
 	display: none;
 }
@@ -147,6 +153,9 @@
 	object-fit: contain;
 	object-position: center bottom;
 	pointer-events: none;
+}
+.photo-with-vashito-stage.hide-vashito-overlay .vashito-overlay {
+	display: none;
 }
 .photo-with-vashito-stage .photo-captured-preview {
 	z-index: 3;
