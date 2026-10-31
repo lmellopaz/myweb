@@ -63,12 +63,18 @@
 				<img class="photo-background" src="images/fotovashito/fondos/altar.jpg" alt="">
 				<video class="camera-source" autoplay muted playsinline aria-label="Fuente de cámara para recortar el fondo"></video>
 				<canvas class="camera-preview" aria-label="Vista previa de la cámara sin fondo"></canvas>
-				<img class="vashito-overlay" src="images/fotovashito/vashito.png" alt="Vashito en la foto">
+				<img class="photo-foreground" src="images/fotovashito/vashito.png" alt="Vashito en la foto">
 				<img class="photo-captured-preview" alt="Foto tomada con Vashito">
 				<div class="camera-preview-message">La vista previa de la cámara aparecerá aquí.</div>
 				<div class="camera-countdown" aria-live="assertive" aria-atomic="true"></div>
 			</div>
 			<div class="photo-with-vashito-controls">
+				<label for="photo-subject">Personaje</label>
+				<select id="photo-subject" class="photo-subject">
+					<option value="vashito">Vashito</option>
+					<option value="bts">BTS</option>
+					<option value="epstein">Epstein</option>
+				</select>
 				<button class="photo-background-previous" type="button" aria-label="Fondo anterior">&#8592;</button>
 				<span class="photo-background-name" aria-live="polite">Altar</span>
 				<button class="photo-background-next" type="button" aria-label="Fondo siguiente">&#8594;</button>
