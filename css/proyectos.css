@@ -121,7 +121,7 @@
 }
 .photo-with-vashito-stage .photo-background,
 .photo-with-vashito-stage .camera-preview,
-.photo-with-vashito-stage .vashito-overlay,
+.photo-with-vashito-stage .photo-foreground,
 .photo-with-vashito-stage .photo-captured-preview {
 	position: absolute;
 	inset: 0;
@@ -131,12 +131,6 @@
 .photo-with-vashito-stage .photo-background {
 	z-index: 0;
 	object-fit: cover;
-}
-.photo-with-vashito-stage.contain-photo-background {
-	background: #151515;
-}
-.photo-with-vashito-stage.contain-photo-background .photo-background {
-	object-fit: contain;
 }
 .photo-with-vashito-stage .camera-source {
 	display: none;
@@ -148,14 +142,11 @@
 	object-fit: cover;
 	transform: scaleX(-1);
 }
-.photo-with-vashito-stage .vashito-overlay {
+.photo-with-vashito-stage .photo-foreground {
 	z-index: 1;
 	object-fit: contain;
 	object-position: center bottom;
 	pointer-events: none;
-}
-.photo-with-vashito-stage.hide-vashito-overlay .vashito-overlay {
-	display: none;
 }
 .photo-with-vashito-stage .photo-captured-preview {
 	z-index: 3;
@@ -165,7 +156,7 @@
 }
 .photo-with-vashito-stage.has-captured-photo .photo-background,
 .photo-with-vashito-stage.has-captured-photo .camera-preview,
-.photo-with-vashito-stage.has-captured-photo .vashito-overlay {
+.photo-with-vashito-stage.has-captured-photo .photo-foreground {
 	display: none;
 }
 .photo-with-vashito-stage.has-captured-photo .photo-captured-preview {
@@ -215,8 +206,27 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 1.5rem;
+	flex-wrap: wrap;
+	gap: 1rem;
 	margin: 1.2rem 0 .4rem;
+}
+.photo-with-vashito-controls label {
+	margin: 0;
+	font-family: "poppins-medium", sans-serif;
+	font-size: 1.3rem;
+}
+.photo-subject {
+	width: auto;
+	min-width: 13rem;
+	height: 4.2rem;
+	margin: 0;
+	padding: 0 1rem;
+	border: 1px solid #D5D5D5;
+	border-radius: .4rem;
+	background: #FFFFFF;
+	color: #313131;
+	font-family: "poppins-regular", sans-serif;
+	font-size: 1.3rem;
 }
 .photo-with-vashito-controls button {
 	width: 4.2rem;
@@ -427,6 +437,16 @@
 	}
 	.photo-capture-controls {
 		gap: .8rem;
+	}
+	.photo-with-vashito-controls {
+		gap: .8rem;
+	}
+	.photo-with-vashito-controls label {
+		flex: 1 0 100%;
+		text-align: center;
+	}
+	.photo-subject {
+		flex: 1 1 100%;
 	}
 	.photo-capture-controls label {
 		flex: 1 0 100%;
