@@ -15,6 +15,8 @@
 			cameraStage = cameraDialog.querySelector('.photo-with-vashito-stage'),
 			backgroundImage = cameraDialog.querySelector('.photo-background'),
 			backgroundName = cameraDialog.querySelector('.photo-background-name'),
+			foregroundImage = cameraDialog.querySelector('.photo-foreground'),
+			subjectSelect = cameraDialog.querySelector('.photo-subject'),
 			countdownSelect = cameraDialog.querySelector('.photo-countdown-duration'),
 			captureButton = cameraDialog.querySelector('.photo-capture-button'),
 			countdownDisplay = cameraDialog.querySelector('.camera-countdown'),
@@ -32,18 +34,28 @@
 			backgrounds = [
 				{src: 'images/fotovashito/fondos/altar.jpg', name: 'Altar'},
 				{src: 'images/fotovashito/fondos/basura.webp', name: 'Basura'},
-				{src: 'images/fotovashito/fondos/bts.png', name: 'BTS', showVashito: false, fit: 'contain'},
 				{src: 'images/fotovashito/fondos/concentracion.jfif', name: 'Concentración'},
-				{src: 'images/fotovashito/fondos/epstein.jpg', name: 'Epstein', showVashito: false, fit: 'contain'},
-				{src: 'images/fotovashito/fondos/luna.webp', name: 'Luna'}
-			];
+				{src: 'images/fotovashito/fondos/epstein.webp', name: 'Isla'},
+				{src: 'images/fotovashito/fondos/luna.webp', name: 'Luna'},
+				{src: 'images/fotovashito/fondos/sistema digestivo.jpg', name: 'Sistema digestivo'}
+			],
+			subjects = {
+				vashito: {src: 'images/fotovashito/vashito.png', name: 'Vashito'},
+				bts: {src: 'images/fotovashito/fondos/bts.png', name: 'BTS'},
+				epstein: {src: 'images/fotovashito/fondos/epstein.png', name: 'Epstein'}
+			};
 
 		function selectBackground(index) {
 			backgroundIndex = (index + backgrounds.length) % backgrounds.length;
 			backgroundImage.src = backgrounds[backgroundIndex].src;
 			backgroundName.textContent = backgrounds[backgroundIndex].name;
-			cameraStage.classList.toggle('hide-vashito-overlay', backgrounds[backgroundIndex].showVashito === false);
-			cameraStage.classList.toggle('contain-photo-background', backgrounds[backgroundIndex].fit === 'contain');
+		}
+
+		function selectSubject(subject) {
+			var selectedSubject = subjects[subject];
+
+			foregroundImage.src = selectedSubject.src;
+			foregroundImage.alt = selectedSubject.name + ' en la foto';
 		}
 
 		function stopCamera() {
@@ -135,24 +147,8 @@
 			);
 		}
 
-		function drawContainCentered(context, source, sourceWidth, sourceHeight, targetWidth, targetHeight) {
-			var scale = Math.min(targetWidth / sourceWidth, targetHeight / sourceHeight),
-				drawWidth = sourceWidth * scale,
-				drawHeight = sourceHeight * scale;
-
-			context.drawImage(
-				source,
-				(targetWidth - drawWidth) / 2,
-				(targetHeight - drawHeight) / 2,
-				drawWidth,
-				drawHeight
-			);
-		}
-
 		async function createPhotoBlob() {
-			var overlayImage = cameraDialog.querySelector('.vashito-overlay');
-
-			await Promise.all([backgroundImage.decode(), overlayImage.decode()]);
+			await Promise.all([backgroundImage.decode(), foregroundImage.decode()]);
 
 			return new Promise(function(resolve, reject) {
 				var outputCanvas = document.createElement('canvas'),
@@ -170,7 +166,7 @@
 					return;
 				}
 
-				(backgrounds[backgroundIndex].fit === 'contain' ? drawContainCentered : drawCover)(
+				drawCover(
 					outputContext,
 					backgroundImage,
 					backgroundImage.naturalWidth,
@@ -179,16 +175,14 @@
 					height
 				);
 
-				if (backgrounds[backgroundIndex].showVashito !== false) {
-					drawContain(
-						outputContext,
-						overlayImage,
-						overlayImage.naturalWidth,
-						overlayImage.naturalHeight,
-						width,
-						height
-					);
-				}
+				drawContain(
+					outputContext,
+					foregroundImage,
+					foregroundImage.naturalWidth,
+					foregroundImage.naturalHeight,
+					width,
+					height
+				);
 
 				outputContext.save();
 				outputContext.translate(width, 0);
@@ -305,6 +299,10 @@
 
 		cameraDialog.querySelector('.photo-background-next').addEventListener('click', function() {
 			selectBackground(backgroundIndex + 1);
+		});
+
+		subjectSelect.addEventListener('change', function() {
+			selectSubject(subjectSelect.value);
 		});
 
 		countdownSelect.addEventListener('change', function() {
